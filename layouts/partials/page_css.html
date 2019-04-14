@@ -1,0 +1,3 @@
+{{ range .Params.css -}}
+  <link rel="stylesheet" href="{{ (printf "css/%s" .) | absURL }}">
+{{- end }}
