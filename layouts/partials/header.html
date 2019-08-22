@@ -3,7 +3,13 @@
 <html lang="{{ .Site.LanguageCode | default "en" }}">
 
 <head>
-  <title>{{ .Site.Title }}</title>
+  <title>
+    {{ if not (eq .Title .Site.Title) }}
+      {{ .Site.Title }} - {{ .Title }}
+    {{ else }}
+      {{ .Site.Title }}
+    {{ end }}
+  </title>
   {{ partial "meta" . }}
   {{ partial "header_includes" . -}}
 </head>
